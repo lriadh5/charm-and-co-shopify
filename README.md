@@ -8,9 +8,11 @@ blocked on the store owner.
 
 **Status: pre-launch theme scaffold.** No live Shopify store exists yet —
 this repo is theme code only, developed locally against a vendored copy of
-Horizon. Nothing here has been pushed to a real store or tested in the
-Shopify theme editor/Shopify CLI dev server yet (no Shopify CLI/store access
-in the build environment — see `docs/open-items.md`).
+Horizon. `shopify theme check` passes clean (364 files, 0 offenses), but
+nothing has been pushed to a real store or opened in the Shopify theme
+editor/local dev server yet — there is no store to connect to in this build
+environment (see `docs/platform-access-notes.md`). Treat layout/spacing/
+block behavior of every new section as visually unverified until then.
 
 ## What's in this repo
 
