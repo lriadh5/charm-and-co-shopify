@@ -2,6 +2,17 @@
 
 All entries newest first. This is a build/dev changelog, not a customer-facing one.
 
+## 2026-08-25 — Theme-check fixes + placeholder catalog
+
+**Fixed** (found by installing `@shopify/cli` and running `shopify theme check`):
+- Sections can't use `{% doc %}` (snippet/block-only) — switched the four new sections to `{% comment %}`.
+- `{% stylesheet %}` must be static CSS; moved dynamic `settings.color_palette` values into inline custom properties on the wrapping element instead (`price-tier-badge` snippet, `testimonials` section).
+- Added `.theme-check.yml` disabling `MatchingTranslations` — store launches English-only, so incomplete translations across the 30+ vendor locale files aren't a real defect (Shopify falls back to `en.default.json`).
+- Verified: 364 files, 0 offenses.
+
+**Added**
+- `dev/sample-data/products.csv` — 18 placeholder products matching the brief's Section 12 catalog scope (8 phone charms, 3 bag charms, 2 bracelets, 2 hair accessories, 3 bundles), tagged with the `capsule_*` convention so Complete the Look / price-tier logic has real data to render against in dev. All rows import as `draft`/unpublished and every field is explicitly marked `[PLACEHOLDER]` — see `dev/sample-data/README.md` for import steps and what still needs to happen (capsule/price-tier automated collections) before it's usable.
+
 ## 2026-08-25 — Initial theme scaffold
 
 **Context:** No Shopify store exists yet for this brand. Working autonomously
