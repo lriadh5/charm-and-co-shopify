@@ -64,7 +64,7 @@
     "currency_code_enabled_product_cards": false,
     "currency_code_enabled_cart_items": false,
     "product_corner_radius": 0,
-    "card_corner_radius": 4,
+    "card_corner_radius": 16,
     "show_variant_image": false,
     "variant_swatch_width": 34,
     "variant_swatch_height": 34,
@@ -78,10 +78,10 @@
     "palette_variant_border": "{{ settings.color_palette.color3 }}",
     "color_palette": {
       "background": "#ffffff",
-      "foreground": "#000000",
-      "color1": "#333333",
-      "color2": "#EEF1EA",
-      "color3": "#DFDFDF"
+      "foreground": "#16151c",
+      "color1": "#7c6cf0",
+      "color2": "#fff4d6",
+      "color3": "#d8e9e3"
     }
   },
   "presets": {
@@ -141,7 +141,7 @@
       "currency_code_enabled_product_cards": false,
       "currency_code_enabled_cart_items": false,
       "product_corner_radius": 0,
-      "card_corner_radius": 4,
+      "card_corner_radius": 16,
       "show_variant_image": false,
       "variant_swatch_width": 34,
       "variant_swatch_height": 34,
@@ -154,10 +154,10 @@
       "palette_variant_border": "{{ settings.color_palette.color3 }}",
       "color_palette": {
         "background": "#ffffff",
-        "foreground": "#000000",
-        "color1": "#333333",
-        "color2": "#EEF1EA",
-        "color3": "#DFDFDF"
+        "foreground": "#16151c",
+        "color1": "#7c6cf0",
+        "color2": "#fff4d6",
+        "color3": "#d8e9e3"
       }
     }
   }

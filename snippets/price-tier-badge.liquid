@@ -1,0 +1,44 @@
+{%- doc -%}
+  Renders a "Under $15" / "Under $20" gifting badge computed directly from the
+  product's price. No metafield or tag required — the tier updates automatically
+  whenever the price changes, so merchandising never drifts out of sync with price.
+
+  @param {object} product - the product to evaluate
+  @param {number} [tier_one_cents] - upper bound (cents) for the first tier. Default 1500 ($15).
+  @param {number} [tier_two_cents] - upper bound (cents) for the second tier. Default 2000 ($20).
+
+  @example
+  {% render 'price-tier-badge', product: product %}
+{%- enddoc -%}
+
+{%- liquid
+  assign tier_one_cents = tier_one_cents | default: 1500
+  assign tier_two_cents = tier_two_cents | default: 2000
+  assign compare_price = product.price_min | default: product.price
+
+  assign tier_label = blank
+  if compare_price < tier_one_cents
+    assign tier_label = 'content.price_tier_under_15' | t
+  elsif compare_price < tier_two_cents
+    assign tier_label = 'content.price_tier_under_20' | t
+  endif
+-%}
+
+{%- if tier_label != blank -%}
+  <span class="price-tier-badge">{{ tier_label }}</span>
+{%- endif -%}
+
+{% stylesheet %}
+  .price-tier-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25em 0.75em;
+    border-radius: var(--style-border-radius-buttons, 999px);
+    background: {{ settings.color_palette.color2 | default: '#fff4d6' }};
+    color: {{ settings.color_palette.foreground | default: '#16151c' }};
+    font-size: var(--font-size--xs, 0.75rem);
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+  }
+{% endstylesheet %}

@@ -272,6 +272,17 @@
         "padding-block-end": 0
       }
     },
+    "complete_the_look": {
+      "type": "complete-the-look",
+      "settings": {
+        "heading": "Complete the look",
+        "capsule_subheading": "More from this set",
+        "product_limit": 4,
+        "section_width": "page-width",
+        "padding-block-start": 48,
+        "padding-block-end": 24
+      }
+    },
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
       "blocks": {
@@ -410,6 +421,7 @@
   },
   "order": [
     "main",
+    "complete_the_look",
     "product_recommendations_qggXJq"
   ]
 }

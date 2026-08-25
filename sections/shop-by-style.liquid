@@ -1,0 +1,155 @@
+{%- doc -%}
+  "Shop by Style" tiles (Pastel, Y2K, Minimal, etc.). Each tile is a merchant-
+  managed block pointing at a tag-filtered search or a collection, so new
+  styles can be added from the theme editor without any code changes.
+{%- enddoc -%}
+
+<div
+  class="section section--{{ section.settings.section_width }} shop-by-style spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  {%- if section.settings.heading != blank -%}
+    <h2 class="shop-by-style__heading">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+
+  <ul class="shop-by-style__list" role="list">
+    {%- for block in section.blocks -%}
+      <li class="shop-by-style__item" {{ block.shopify_attributes }}>
+        <a href="{{ block.settings.link | default: '#' }}" class="shop-by-style__link">
+          {% render 'image', image: block.settings.image, height: 400, class: 'shop-by-style__image' %}
+          <span class="shop-by-style__title">{{ block.settings.title }}</span>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% stylesheet %}
+  .shop-by-style__heading {
+    font-family: var(--font-heading--family);
+    margin: 0 0 1.25rem;
+  }
+
+  .shop-by-style__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .shop-by-style__list {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .shop-by-style__link {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--style-border-radius-cards, 16px);
+    overflow: hidden;
+  }
+
+  .shop-by-style__image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+  }
+
+  .shop-by-style__title {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    padding: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Shop by style",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop by style"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        { "value": "page-width", "label": "t:options.page" },
+        { "value": "full-width", "label": "t:options.full" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Style tile",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Style name",
+          "default": "Pastel"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (collection or tag search)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by style",
+      "category": "t:categories.collection",
+      "blocks": [
+        { "type": "tile", "settings": { "title": "Pastel" } },
+        { "type": "tile", "settings": { "title": "Y2K" } },
+        { "type": "tile", "settings": { "title": "Minimal" } },
+        { "type": "tile", "settings": { "title": "Colorful" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

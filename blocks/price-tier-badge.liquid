@@ -1,0 +1,77 @@
+{%- liquid
+  assign product_resource = closest.product
+-%}
+
+<div
+  class="price-tier-badge-block spacing-style"
+  style="{% render 'spacing-style', settings: block.settings %}"
+  data-block-id="{{ block.id }}"
+  {{ block.shopify_attributes }}
+>
+  {% render 'price-tier-badge',
+    product: product_resource,
+    tier_one_cents: block.settings.tier_one_cents,
+    tier_two_cents: block.settings.tier_two_cents
+  %}
+</div>
+
+{% schema %}
+{
+  "name": "Price tier badge",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Shows an automatic \"Under $15\" / \"Under $20\" gifting badge based on the product's current price. Nothing to maintain by hand — it updates itself when price changes."
+    },
+    {
+      "type": "range",
+      "id": "tier_one_cents",
+      "label": "First tier ceiling (cents)",
+      "min": 500,
+      "max": 5000,
+      "step": 100,
+      "default": 1500
+    },
+    {
+      "type": "range",
+      "id": "tier_two_cents",
+      "label": "Second tier ceiling (cents)",
+      "min": 500,
+      "max": 5000,
+      "step": 100,
+      "default": 2000
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Price tier badge",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}

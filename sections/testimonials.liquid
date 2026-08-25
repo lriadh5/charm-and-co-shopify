@@ -1,0 +1,158 @@
+{%- doc -%}
+  Zero-cost interim social proof (curated quotes) for use before a reviews
+  app is installed. Once a reviews platform is chosen (Judge.me, Loox, etc.),
+  replace this section with its theme app block/embed in the same homepage
+  slot — no other changes needed.
+{%- enddoc -%}
+
+<div
+  class="section section--{{ section.settings.section_width }} testimonials spacing-style"
+  style="{% render 'spacing-style', settings: section.settings %}"
+>
+  {%- if section.settings.heading != blank -%}
+    <h2 class="testimonials__heading">{{ section.settings.heading }}</h2>
+  {%- endif -%}
+
+  <ul class="testimonials__list" role="list">
+    {%- for block in section.blocks -%}
+      <li class="testimonials__item" {{ block.shopify_attributes }}>
+        {%- if block.settings.rating > 0 -%}
+          <span class="testimonials__rating" aria-hidden="true">
+            {% for i in (1..5) %}{% if i <= block.settings.rating %}★{% else %}☆{% endif %}{% endfor %}
+          </span>
+        {%- endif -%}
+        <p class="testimonials__quote">&ldquo;{{ block.settings.quote }}&rdquo;</p>
+        <p class="testimonials__author">{{ block.settings.author }}</p>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% stylesheet %}
+  .testimonials__heading {
+    font-family: var(--font-heading--family);
+    margin: 0 0 1.25rem;
+    text-align: center;
+  }
+
+  .testimonials__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .testimonials__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .testimonials__item {
+    padding: 1.25rem;
+    border-radius: var(--style-border-radius-cards, 16px);
+    background: {{ settings.color_palette.color3 | default: '#d8e9e3' }};
+  }
+
+  .testimonials__rating {
+    color: #f5a623;
+    letter-spacing: 0.1em;
+  }
+
+  .testimonials__quote {
+    font-weight: 500;
+  }
+
+  .testimonials__author {
+    font-size: var(--font-size--sm, 0.875rem);
+    color: color-mix(in srgb, currentColor 65%, transparent);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Loved by our customers"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        { "value": "page-width", "label": "t:options.page" },
+        { "value": "full-width", "label": "t:options.full" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Quote",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Star rating",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Obsessed with my new phone charm, it gets compliments everywhere!"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "@customer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "category": "t:categories.storytelling",
+      "blocks": [
+        { "type": "quote" },
+        { "type": "quote" },
+        { "type": "quote" }
+      ]
+    }
+  ]
+}
+{% endschema %}

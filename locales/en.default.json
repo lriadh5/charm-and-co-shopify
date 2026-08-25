@@ -163,6 +163,8 @@
     }
   },
   "content": {
+    "price_tier_under_15": "Under $15",
+    "price_tier_under_20": "Under $20",
     "cancel": "Cancel",
     "discount": "Discount",
     "account_title": "Account",
