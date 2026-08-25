@@ -1,13 +1,16 @@
-{%- doc -%}
+{% comment %}
   Zero-cost interim social proof (curated quotes) for use before a reviews
   app is installed. Once a reviews platform is chosen (Judge.me, Loox, etc.),
   replace this section with its theme app block/embed in the same homepage
   slot — no other changes needed.
-{%- enddoc -%}
+{% endcomment %}
 
 <div
   class="section section--{{ section.settings.section_width }} testimonials spacing-style"
-  style="{% render 'spacing-style', settings: section.settings %}"
+  style="
+    {% render 'spacing-style', settings: section.settings %}
+    --testimonials-item-background: {{ settings.color_palette.color3 | default: '#d8e9e3' }};
+  "
 >
   {%- if section.settings.heading != blank -%}
     <h2 class="testimonials__heading">{{ section.settings.heading }}</h2>
@@ -53,7 +56,7 @@
   .testimonials__item {
     padding: 1.25rem;
     border-radius: var(--style-border-radius-cards, 16px);
-    background: {{ settings.color_palette.color3 | default: '#d8e9e3' }};
+    background: var(--testimonials-item-background);
   }
 
   .testimonials__rating {

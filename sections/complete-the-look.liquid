@@ -1,10 +1,10 @@
-{%- doc -%}
+{% comment %}
   Attribute-aware cross-sell: pulls other products that share the current
   product's "capsule" (e.g. Pink Pop, Midnight, Ocean) instead of a generic
   "related products" feed. Tag a product `capsule_<collection-handle>` (for
   example `capsule_pink-pop`) and make sure an automated collection with that
   handle exists — the section does the rest with no code changes per capsule.
-{%- enddoc -%}
+{% endcomment %}
 
 {%- liquid
   assign product = section.settings.product | default: product

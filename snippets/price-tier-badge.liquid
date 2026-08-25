@@ -25,7 +25,13 @@
 -%}
 
 {%- if tier_label != blank -%}
-  <span class="price-tier-badge">{{ tier_label }}</span>
+  <span
+    class="price-tier-badge"
+    style="
+      --price-tier-badge-background: {{ settings.color_palette.color2 | default: '#fff4d6' }};
+      --price-tier-badge-color: {{ settings.color_palette.foreground | default: '#16151c' }};
+    "
+  >{{ tier_label }}</span>
 {%- endif -%}
 
 {% stylesheet %}
@@ -34,8 +40,8 @@
     align-items: center;
     padding: 0.25em 0.75em;
     border-radius: var(--style-border-radius-buttons, 999px);
-    background: {{ settings.color_palette.color2 | default: '#fff4d6' }};
-    color: {{ settings.color_palette.foreground | default: '#16151c' }};
+    background: var(--price-tier-badge-background);
+    color: var(--price-tier-badge-color);
     font-size: var(--font-size--xs, 0.75rem);
     font-weight: 600;
     line-height: 1;

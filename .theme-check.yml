@@ -1,0 +1,8 @@
+# This store launches English-only. Shopify already falls back to
+# en.default.json for any locale that's missing a key, so incomplete
+# translations in the 30+ vendor locale files aren't a real defect here —
+# they only matter once a language is actually enabled for the store.
+# Revisit this if/when a second language is turned on.
+extends: theme-check:recommended
+MatchingTranslations:
+  enabled: false
