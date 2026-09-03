@@ -4,10 +4,12 @@ Nothing here can be resolved by writing more code. Listed in rough priority
 order (blocking → nice-to-have-soon).
 
 ## Blocking launch entirely
-1. **Create the actual Shopify store** (this build environment has no
-   Shopify CLI/admin access — see `docs/platform-access-notes.md`). Once
-   created: share the `.myshopify.com` domain and either connect it via
-   Shopify's GitHub integration or run `shopify theme push` from this repo.
+1. ~~Create the actual Shopify store~~ — **done.** Store owner confirmed
+   `7ck4xa-y4.myshopify.com` is live, connected to this repo's `main`
+   branch via Shopify's GitHub theme integration, and the draft theme
+   previews correctly. **Do not publish it live** until real product data
+   and real reviews are in (explicit instruction) — testimonials are still
+   fabricated placeholders, which cannot ship.
 2. **Domain name.** "Charm & Co" is the confirmed store/brand name — still
    needs a real trademark/domain-availability check before a domain is
    purchased. Building on the default `.myshopify.com` address until then
@@ -33,11 +35,15 @@ order (blocking → nice-to-have-soon).
    brief).
 8. Existing social/ad accounts to connect (TikTok, Instagram, Pinterest) if
    any exist already.
+9. Real shipping timeframe and return policy — needed to replace the two
+   `[PLACEHOLDER]` answers in the product page FAQ accordion
+   (`templates/product.json`). Once those are real, worth adding FAQPage
+   structured data to that accordion (skipped for now — see CHANGELOG).
 
 ## Deferred by design (per brief)
-9. **Amazon.** No Seller Central account yet — this is explicitly a
-   post-launch phase (see README's Amazon section). Nothing to do here
-   until the Shopify store itself is live and selling.
-10. **SMS marketing.** Recommended to add once revenue justifies Klaviyo or
+10. **Amazon.** No Seller Central account yet — this is explicitly a
+    post-launch phase (see README's Amazon section). Nothing to do here
+    until the Shopify store itself is live and selling.
+11. **SMS marketing.** Recommended to add once revenue justifies Klaviyo or
     a dedicated SMS platform (Postscript/Attentive) — not worth the
     subscription cost pre-revenue.

@@ -23,6 +23,14 @@
           {%- endif -%}
         </div>
       </div>
+    {%- else -%}
+      {%- comment -%} No sale/sold-out badge to compete with — surface the gifting price tier instead. {%- endcomment -%}
+      {%- capture price_tier_markup -%}{% render 'price-tier-badge', product: product %}{%- endcapture -%}
+      {%- if price_tier_markup != blank -%}
+        <div class="product-badges product-badges--{{ settings.badge_position }}">
+          {{ price_tier_markup }}
+        </div>
+      {%- endif -%}
     {%- endif -%}
     {% if product.available and settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add', product: product, section_id: section.id %}

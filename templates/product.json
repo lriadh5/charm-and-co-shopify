@@ -247,6 +247,92 @@
                 "padding-block-start": 8,
                 "padding-block-end": 0
               }
+            },
+            "faq_accordion": {
+              "type": "accordion",
+              "name": "t:names.accordion",
+              "settings": {
+                "icon": "none",
+                "dividers": true,
+                "type_preset": "paragraph",
+                "padding-block-start": 16,
+                "padding-block-end": 0
+              },
+              "blocks": {
+                "faq_row_attach": {
+                  "type": "_accordion-row",
+                  "settings": { "heading": "How do I attach it?", "open_by_default": false, "icon": "none", "width": 24 },
+                  "blocks": {
+                    "faq_text_attach": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Clip or loop it onto your phone case, bag zipper, or keyring — most pieces use a lobster clasp or split ring that opens and closes like a keychain.</p>",
+                        "width": "100%", "max_width": "normal", "alignment": "left", "type_preset": "rte",
+                        "font": "var(--font-body--family)", "font_size": "", "line_height": "normal",
+                        "letter_spacing": "normal", "case": "none", "wrap": "pretty",
+                        "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": ["faq_text_attach"]
+                },
+                "faq_row_care": {
+                  "type": "_accordion-row",
+                  "settings": { "heading": "How do I keep it looking new?", "open_by_default": false, "icon": "none", "width": 24 },
+                  "blocks": {
+                    "faq_text_care": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>Keep it dry, avoid perfume/lotion contact where possible, and store it flat when not in use to keep beads and charms from tangling.</p>",
+                        "width": "100%", "max_width": "normal", "alignment": "left", "type_preset": "rte",
+                        "font": "var(--font-body--family)", "font_size": "", "line_height": "normal",
+                        "letter_spacing": "normal", "case": "none", "wrap": "pretty",
+                        "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": ["faq_text_care"]
+                },
+                "faq_row_shipping": {
+                  "type": "_accordion-row",
+                  "settings": { "heading": "How long does shipping take?", "open_by_default": false, "icon": "none", "width": 24 },
+                  "blocks": {
+                    "faq_text_shipping": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>[PLACEHOLDER — confirm real shipping timeframe once a fulfillment method is set] Standard shipping takes an estimated X–Y business days.</p>",
+                        "width": "100%", "max_width": "normal", "alignment": "left", "type_preset": "rte",
+                        "font": "var(--font-body--family)", "font_size": "", "line_height": "normal",
+                        "letter_spacing": "normal", "case": "none", "wrap": "pretty",
+                        "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": ["faq_text_shipping"]
+                },
+                "faq_row_returns": {
+                  "type": "_accordion-row",
+                  "settings": { "heading": "What's your return policy?", "open_by_default": false, "icon": "none", "width": 24 },
+                  "blocks": {
+                    "faq_text_returns": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>[PLACEHOLDER — confirm real return window/policy] Returns accepted within X days of delivery, item unworn.</p>",
+                        "width": "100%", "max_width": "normal", "alignment": "left", "type_preset": "rte",
+                        "font": "var(--font-body--family)", "font_size": "", "line_height": "normal",
+                        "letter_spacing": "normal", "case": "none", "wrap": "pretty",
+                        "padding-block-start": 0, "padding-block-end": 0, "padding-inline-start": 0, "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": ["faq_text_returns"]
+                }
+              },
+              "block_order": ["faq_row_attach", "faq_row_care", "faq_row_shipping", "faq_row_returns"]
             }
           },
           "block_order": [
@@ -255,7 +341,8 @@
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "text_aEtTtq",
-            "product_details_metafields"
+            "product_details_metafields",
+            "faq_accordion"
           ]
         },
         "disclosures": {
@@ -289,6 +376,151 @@
         "section_width": "page-width",
         "padding-block-start": 48,
         "padding-block-end": 24
+      }
+    },
+    "frequently_bought_together": {
+      "type": "product-recommendations",
+      "blocks": {
+        "text_fbt_heading": {
+          "type": "text",
+          "name": "t:names.header",
+          "settings": {
+            "text": "<h2>Frequently bought together</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "h4",
+            "font": "var(--font-body--family)",
+            "font_size": "",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "static-product-card": {
+          "type": "_product-card",
+          "name": "t:names.product_card",
+          "static": true,
+          "settings": {
+            "product_card_gap": 8,
+            "border": "none",
+            "border_width": 1,
+            "border_opacity": 100,
+            "border_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 8,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {
+            "product_card_gallery_fbt": {
+              "type": "_product-card-gallery",
+              "name": "t:names.product_card_media",
+              "settings": {
+                "image_ratio": "adapt",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "product_title_fbt": {
+              "type": "product-title",
+              "name": "t:names.product_title",
+              "settings": {
+                "width": "100%",
+                "max_width": "normal",
+                "alignment": "left",
+                "type_preset": "paragraph",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "wrap": "pretty",
+                "background": false,
+                "background_color": "#00000026",
+                "corner_radius": 0,
+                "padding-block-start": 4,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "price_fbt": {
+              "type": "price",
+              "settings": {
+                "show_sale_price_first": true,
+                "show_installments": false,
+                "show_tax_info": false,
+                "type_preset": "h6",
+                "width": "100%",
+                "alignment": "left",
+                "font": "var(--font-body--family)",
+                "font_size": "1rem",
+                "line_height": "normal",
+                "letter_spacing": "normal",
+                "case": "none",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            }
+          },
+          "block_order": [
+            "product_card_gallery_fbt",
+            "product_title_fbt",
+            "price_fbt"
+          ]
+        }
+      },
+      "block_order": [
+        "text_fbt_heading"
+      ],
+      "name": "t:names.product_recommendations",
+      "settings": {
+        "product": "{{ closest.product }}",
+        "recommendation_type": "complementary",
+        "layout_type": "grid",
+        "carousel_on_mobile": false,
+        "max_products": 4,
+        "columns": 4,
+        "mobile_columns": "2",
+        "columns_gap": 12,
+        "rows_gap": 24,
+        "icons_style": "arrow",
+        "icons_shape": "none",
+        "section_width": "page-width",
+        "gap": 28,
+        "padding-block-start": 24,
+        "padding-block-end": 24
+      }
+    },
+    "bundle_upsell": {
+      "type": "bundle-showcase",
+      "settings": {
+        "heading": "Bundle & save",
+        "product_limit": 3,
+        "section_width": "page-width",
+        "padding-block-start": 24,
+        "padding-block-end": 48
       }
     },
     "product_recommendations_qggXJq": {
@@ -430,6 +662,8 @@
   "order": [
     "main",
     "complete_the_look",
+    "frequently_bought_together",
+    "bundle_upsell",
     "product_recommendations_qggXJq"
   ]
 }

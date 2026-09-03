@@ -30,6 +30,8 @@ block behavior of every new section as visually unverified until then.
 - `snippets/breadcrumbs.liquid` — visible breadcrumb nav + BreadcrumbList JSON-LD on product/collection pages (Horizon ships Product schema and full meta tags out of the box, but had no breadcrumbs at all).
 - `blocks/product-details-metafields.liquid` — shows `material`/`dimensions` product metafields when set, hides itself otherwise.
 - `dev/scripts/shopify-admin-setup.mjs` — one-shot Admin API script that creates the full collection set, main navigation menu, and metafield definitions (see `docs/collections-and-navigation.md`) once there's a store + token. Not run yet.
+- Product page cross-sell/upsell stack, in order: Complete the Look (capsule-driven) → Frequently Bought Together (native Shopify complementary recommendations) → Bundle & Save (bundle-showcase pointed at the Bundles collection) → "You may also like" (native related recommendations). Plus an FAQ accordion (attachment/care answers written, shipping/returns answers left as explicit `[PLACEHOLDER]`s pending real policy).
+- Collection/search product cards now show the price-tier badge automatically whenever there's no sale/sold-out badge to compete with it.
 - `docs/collections-and-navigation.md`, `docs/marketing-automation-flows.md` — collection/nav spec and copy drafts for all 12 lifecycle email/SMS flows from Section 15, sequenced into a $0 launch-day phase and a Phase 2 once an SMS/Klaviyo platform is added.
 
 ## Decisions made autonomously (flagged for review)

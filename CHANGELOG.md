@@ -2,6 +2,48 @@
 
 All entries newest first. This is a build/dev changelog, not a customer-facing one.
 
+## 2026-09-03 (2) — Store connected; finished collection/product page + cross-sell
+
+Store owner confirmed: GitHub is connected to the live store
+(`7ck4xa-y4.myshopify.com`) via this repo's `main` branch, and the draft
+theme previewed correctly (hero, nav, testimonials, footer). **Not
+published live** — real product data and reviews still needed first.
+Instructed to keep building everything not blocked by that.
+
+**Collection pages**
+- Confirmed Horizon already renders collection title/description and
+  filters natively (`templates/collection.json` + `main-collection.liquid`)
+  — nothing missing there structurally.
+- Product/search cards now show the price-tier badge automatically when
+  there's no sale/sold-out badge competing for the same slot
+  (`blocks/_product-card-gallery.liquid`).
+
+**Product page**
+- Added "Frequently Bought Together" using Shopify's native complementary
+  recommendation type (no custom logic — just a second
+  `product-recommendations` block).
+- Added a "Bundle & Save" prompt (`bundle-showcase` pointed at the Bundles
+  collection).
+- Added an FAQ accordion reusing Horizon's existing accordion/`_accordion-row`
+  blocks: attachment and care answers are real copy; shipping and returns
+  answers are explicit `[PLACEHOLDER]`s pending real policy — did not
+  fabricate specific timeframes.
+- Full PDP cross-sell/upsell order now: Complete the Look → Frequently
+  Bought Together → Bundle & Save → "You may also like" (native related).
+
+**SEO scaffolding — audit result**
+- Product, Organization, and BreadcrumbList structured data are now all
+  present and confirmed (Product + Organization were already native to
+  Horizon; BreadcrumbList added last session). Canonical URLs, OG/Twitter
+  meta, and title/description logic were already solid.
+- Deliberately did not add FAQPage JSON-LD for the new accordion — safe to
+  skip while its shipping/returns answers are still placeholders, and
+  aggregating structured data across arbitrary accordion instances
+  reliably needs real-store testing this environment can't do. Documented
+  as a follow-up rather than half-implemented.
+
+Verified: `shopify theme check`, 366 files, 0 offenses.
+
 ## 2026-09-03 — Rebrand + SEO/metafields/collections/automation scaffolding
 
 Store owner confirmed the store name and gave the explicit go-ahead to keep
