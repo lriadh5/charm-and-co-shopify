@@ -8,8 +8,10 @@ order (blocking → nice-to-have-soon).
    Shopify CLI/admin access — see `docs/platform-access-notes.md`). Once
    created: share the `.myshopify.com` domain and either connect it via
    Shopify's GitHub integration or run `shopify theme push` from this repo.
-2. **Domain name.** "Charm Loop" is a placeholder working name (see README)
-   — needs a real trademark/domain-availability check before committing.
+2. **Domain name.** "Charm & Co" is the confirmed store/brand name — still
+   needs a real trademark/domain-availability check before a domain is
+   purchased. Building on the default `.myshopify.com` address until then
+   (per store owner's instruction).
 3. **Real product/supplier data.** Section 12 of the brief calls for 8 phone
    charms, 3 bag charms, 2 bracelet products, 2 hair/accessory products, and
    ~3 bundles — real SKUs, cost, pricing, weights, and descriptions.

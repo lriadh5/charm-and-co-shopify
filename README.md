@@ -1,6 +1,6 @@
-# Charm Loop — Shopify Theme
+# Charm & Co — Shopify Theme
 
-Working brand name for a new teen/young-adult accessories brand (phone charms,
+Shopify store for a new teen/young-adult accessories brand (phone charms,
 bag charms, bracelets, hair accessories, matching sets). Built on Shopify's
 **Horizon** theme. See `docs/build-brief.md` for the full source brief this
 project is being built against, and `docs/open-items.md` for what's still
@@ -30,7 +30,7 @@ block behavior of every new section as visually unverified until then.
 
 ## Decisions made autonomously (flagged for review)
 
-- **Working brand name:** "Charm Loop" — chosen from a shortlist because it's category-forward (the hero product), doubles as the literal hardware that attaches charms/bracelets/clips, and isn't precious to change before a real domain purchase.
+- **Brand/store name:** "Charm & Co" — confirmed by the store owner as the Shopify store name. Domain and trademark availability still need checking before a real domain is purchased.
 - **Theme base: Horizon**, not Dawn — Horizon is Shopify's current default for new stores. Its out-of-the-box mobile PageSpeed is weaker than a lean Dawn build, so Core Web Vitals need to be an explicit QA gate (see `docs/performance-notes.md`), not assumed.
 - **Plan tier recommendation: Basic** to start (no Functions/checkout-scripting needed for an 18-SKU launch); upgrade to Grow/Advanced later if needed.
 - **Capsule/style merchandising uses product tags + automated collections**, not metafields/metaobjects as the brief suggested. Reasoning: tags + Shopify's native automated-collection price/tag conditions achieve the same "admin-manageable, no code changes" goal natively, without needing an Admin API token or custom metafield definitions before a store even exists. See `docs/tagging-conventions.md`.

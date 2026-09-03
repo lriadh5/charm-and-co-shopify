@@ -22,7 +22,7 @@ been implemented so far and `docs/open-items.md` for what's still pending.
 - Admin API / Storefront API tokens → not yet issued.
 
 **Brand assets**
-- Brand name/domain, logo, colors, fonts → **undecided, needs help deciding** (working name "Charm Loop" chosen provisionally).
+- Brand name/domain, logo, colors, fonts → **undecided, needs help deciding** (working name "Charm & Co" chosen provisionally).
 - Real product photography/video or supplier-provided images → **needs sourcing.**
 
 **Product & supplier data**
@@ -41,7 +41,7 @@ been implemented so far and `docs/open-items.md` for what's still pending.
 - Target launch date → none fixed.
 
 ## 2. Open Questions (resolved so far)
-1. Brand name and domain → undecided, working name "Charm Loop" chosen; real domain pending.
+1. Brand name and domain → undecided, working name "Charm & Co" chosen; real domain pending.
 2. New store or existing → new store.
 3. Real initial product data → not ready, needs sourcing help.
 4. Amazon Seller Central status → no account yet.
