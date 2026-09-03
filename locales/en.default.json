@@ -29,6 +29,7 @@
       "one": "{{ count }} filter applied",
       "other": "{{ count }} filters applied"
     },
+    "breadcrumbs": "Breadcrumb",
     "home_logo_alt": "{{ store_name }} - Home",
     "increase_quantity": "Increase quantity",
     "inventory_status": "Inventory status",

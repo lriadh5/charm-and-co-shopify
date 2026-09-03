@@ -2,6 +2,8 @@
   {{ closest.product | structured_data }}
 </script>
 
+{% render 'breadcrumbs', product: closest.product, collection: collection %}
+
 {% capture media_gallery %}
   {%- content_for 'block',
     type: '_product-media-gallery',
