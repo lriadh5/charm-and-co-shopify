@@ -24,7 +24,10 @@ order (blocking → nice-to-have-soon).
 
 ## Needed before going live but not blocking theme work
 6. Admin API custom app + token (scopes: products, inventory, orders,
-   discounts) if/when bulk product import or automation is wanted.
+   discounts, `read/write_online_store_navigation`) — unlocks running
+   `dev/scripts/shopify-admin-setup.mjs`, which creates all 15 collections,
+   the main nav menu, and the `material`/`dimensions` metafield definitions
+   in one shot. Fully written and syntax-checked, just waiting on this.
 7. Google Merchant Center account + GA4 property, Meta/TikTok/Pinterest
    pixel IDs — needed to wire up Web Pixels API tracking (Section 16 of the
    brief).

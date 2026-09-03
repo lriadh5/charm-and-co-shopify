@@ -26,7 +26,11 @@ block behavior of every new section as visually unverified until then.
   - `sections/testimonials.liquid` — zero-cost curated-quote social proof to use until a reviews app is installed (see recommendation below).
   - `blocks/price-tier-badge.liquid` + `snippets/price-tier-badge.liquid` — automatic "Under $15" / "Under $20" badge computed from the product's live price (no manual tagging to maintain).
 - `templates/index.json` — homepage assembled per the brief's Section 7 architecture (hero → featured categories → trending → shop by style → complete the look → bundles → UGC → testimonials → footer w/ email signup).
-- `templates/product.json` — adds Complete the Look between the main product block and Shopify's native "You may also like" recommendations.
+- `templates/product.json` — adds Complete the Look and a material/dimensions block between the main product block and Shopify's native "You may also like" recommendations.
+- `snippets/breadcrumbs.liquid` — visible breadcrumb nav + BreadcrumbList JSON-LD on product/collection pages (Horizon ships Product schema and full meta tags out of the box, but had no breadcrumbs at all).
+- `blocks/product-details-metafields.liquid` — shows `material`/`dimensions` product metafields when set, hides itself otherwise.
+- `dev/scripts/shopify-admin-setup.mjs` — one-shot Admin API script that creates the full collection set, main navigation menu, and metafield definitions (see `docs/collections-and-navigation.md`) once there's a store + token. Not run yet.
+- `docs/collections-and-navigation.md`, `docs/marketing-automation-flows.md` — collection/nav spec and copy drafts for all 12 lifecycle email/SMS flows from Section 15, sequenced into a $0 launch-day phase and a Phase 2 once an SMS/Klaviyo platform is added.
 
 ## Decisions made autonomously (flagged for review)
 

@@ -240,6 +240,13 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "product_details_metafields": {
+              "type": "product-details-metafields",
+              "settings": {
+                "padding-block-start": 8,
+                "padding-block-end": 0
+              }
             }
           },
           "block_order": [
@@ -247,7 +254,8 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "text_aEtTtq",
+            "product_details_metafields"
           ]
         },
         "disclosures": {

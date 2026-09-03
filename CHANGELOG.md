@@ -2,6 +2,51 @@
 
 All entries newest first. This is a build/dev changelog, not a customer-facing one.
 
+## 2026-09-03 — Rebrand + SEO/metafields/collections/automation scaffolding
+
+Store owner confirmed the store name and gave the explicit go-ahead to keep
+building on the default `.myshopify.com` address (no real domain/products
+yet) rather than stall on those two blockers.
+
+**Rebrand**
+- "Charm Loop" → "Charm & Co" across README, docs, and the placeholder
+  catalog's Vendor field. No theme code referenced the old name directly.
+
+**SEO**
+- Added `snippets/breadcrumbs.liquid`: visible breadcrumb nav + schema.org
+  `BreadcrumbList` JSON-LD, wired into `product-information` and
+  `main-collection`. Audited the rest of Horizon's SEO surface while at it:
+  Product JSON-LD (via the built-in `structured_data` filter), full
+  OG/Twitter meta tags, canonical URLs, and the `<title>`/meta description
+  logic were all already present and solid out of the box — only
+  breadcrumbs were missing. Sitemap.xml still can't exist until there's a
+  live store (Shopify generates it platform-side, not from theme files).
+
+**Metafields**
+- Added `blocks/product-details-metafields.liquid`, wired into
+  `templates/product.json`: displays `custom.material` / `custom.dimensions`
+  when set, hides itself otherwise. This is the one place actual Shopify
+  metafields (not tags) made sense — see the updated
+  `docs/tagging-conventions.md` for why capsule/style stayed on tags.
+
+**Collections & navigation**
+- `docs/collections-and-navigation.md`: full collection list (title,
+  handle, automated-collection rule) and main-menu structure matching
+  Sections 8–9 of the brief, all native Shopify rules — no app needed.
+- `dev/scripts/shopify-admin-setup.mjs`: Admin API script (GraphQL,
+  2026-07) that creates the metafield definitions, all 15 collections, and
+  the main navigation menu in one run. Syntax-checked (`node --check`), not
+  executed — no store/token to run it against yet.
+
+**Marketing automation**
+- `docs/marketing-automation-flows.md`: full copy drafts for all 12 flows
+  in Section 15 (welcome, cart/browse/checkout abandonment, post-purchase,
+  review request, back-in-stock, new-drop, VIP, win-back), split into a
+  Phase 1 (launch day, $0, native Shopify Email + automatic abandoned-
+  checkout emails) and Phase 2 (once SMS/Klaviyo is added).
+
+Verified: `shopify theme check` — 366 files, 0 offenses.
+
 ## 2026-08-25 — Theme-check fixes + placeholder catalog
 
 **Fixed** (found by installing `@shopify/cli` and running `shopify theme check`):

@@ -37,6 +37,21 @@ formalizing, apply plain descriptive tags (`Pastel`, `Y2K`, `Minimal`,
 `Colorful`, `Black & White`, `Hearts`, `Stars`, `Initials`) and point each
 tile's link at the matching filtered collection URL.
 
+## Other collection tags
+
+Plain tags, no special convention — just apply them to the right products:
+`new-arrival`, `bestseller`, `sale`, `Matching Set`, `Bundle`. See
+`docs/collections-and-navigation.md` for which collection each one drives.
+
+## Material & dimensions (metafields, not tags)
+
+Unlike capsule/style, `material` and `dimensions` are genuine per-product
+attributes with one value each — real metafields, namespace `custom`,
+keys `material` and `dimensions` (both single-line text). Rendered by
+`blocks/product-details-metafields.liquid` on the product page, and created
+by `dev/scripts/shopify-admin-setup.mjs`. Leave blank on any product where
+it doesn't apply — the block hides itself automatically.
+
 ## Price tiers ("Under $15" / "Under $20")
 
 No tag needed. `snippets/price-tier-badge.liquid` reads `product.price`

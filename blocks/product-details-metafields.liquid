@@ -1,0 +1,106 @@
+{%- doc -%}
+  Displays material and dimensions from product metafields (namespace
+  `custom`, keys `material` and `dimensions`) when present. Genuinely
+  per-product structured data — unlike the capsule/style tags used for
+  merchandising (see docs/tagging-conventions.md), this is exactly what
+  metafields are for. Renders nothing if neither metafield is set, so it's
+  safe to add to every product template even before the definitions exist.
+
+  @example Add as a block inside the product-details area in the theme editor.
+{%- enddoc -%}
+
+{%- liquid
+  assign product_resource = closest.product
+  assign material = product_resource.metafields.custom.material
+  assign dimensions = product_resource.metafields.custom.dimensions
+-%}
+
+{%- if material != blank or dimensions != blank -%}
+  <dl
+    class="product-details-metafields spacing-style"
+    style="{% render 'spacing-style', settings: block.settings %}"
+    data-block-id="{{ block.id }}"
+    {{ block.shopify_attributes }}
+  >
+    {%- if material != blank -%}
+      <div class="product-details-metafields__row">
+        <dt>Material</dt>
+        <dd>{{ material }}</dd>
+      </div>
+    {%- endif -%}
+    {%- if dimensions != blank -%}
+      <div class="product-details-metafields__row">
+        <dt>Dimensions</dt>
+        <dd>{{ dimensions }}</dd>
+      </div>
+    {%- endif -%}
+  </dl>
+{%- endif -%}
+
+{% stylesheet %}
+  .product-details-metafields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin: 0;
+    font-size: var(--font-size--sm, 0.875rem);
+  }
+
+  .product-details-metafields__row {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .product-details-metafields__row dt {
+    font-weight: 600;
+    min-width: 6rem;
+  }
+
+  .product-details-metafields__row dd {
+    margin: 0;
+    color: color-mix(in srgb, currentColor 75%, transparent);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Material & dimensions",
+  "tag": null,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Reads product.metafields.custom.material and product.metafields.custom.dimensions. Hidden automatically if both are blank."
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "Material & dimensions",
+      "category": "t:categories.product"
+    }
+  ]
+}
+{% endschema %}
